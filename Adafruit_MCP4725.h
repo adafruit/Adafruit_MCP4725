@@ -34,7 +34,6 @@ class Adafruit_MCP4725{
   Adafruit_MCP4725();
   void begin(void);  
   void setVoltage( uint16_t output, bool writeEEPROM );
-  void readConfig( uint8_t *status, uint16_t *value );
 
  private:
 };

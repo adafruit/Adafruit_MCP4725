@@ -1,7 +1,7 @@
 /**************************************************************************/
 /*! 
     @file     Adafruit_MCP4725.cpp
-    @author   Adafruit Industries
+    @author   K.Townsend (Adafruit Industries)
 	@license  BSD (see license.txt)
 	
 	I2C Driver for Microchip's MCP4725 I2C DAC
@@ -74,19 +74,4 @@ void Adafruit_MCP4725::setVoltage( uint16_t output, bool writeEEPROM )
   Wire.write(output / 16);                   // Upper data bits          (D11.D10.D9.D8.D7.D6.D5.D4)
   Wire.write(output % 16) << 4;              // Lower data bits          (D3.D2.D1.D0.x.x.x.x)
   Wire.endTransmission();
-}
-
-/**************************************************************************/
-/*! 
-    @brief  Reads the current configuration and output settings for the
-            DAC.
-
-    @param[out] status
-                Pointer to hold the contents of the status register
-    @param[out] value
-                Pointer to hold the output value of the 12-bit DAC
-*/
-/**************************************************************************/
-void Adafruit_MCP4725::readConfig( uint8_t *status, uint16_t *value )
-{
 }
