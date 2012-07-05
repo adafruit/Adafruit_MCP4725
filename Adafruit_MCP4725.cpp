@@ -41,8 +41,10 @@ Adafruit_MCP4725::Adafruit_MCP4725() {
     @brief  Setups the HW
 */
 /**************************************************************************/
-void Adafruit_MCP4725::begin() {
+void Adafruit_MCP4725::begin(uint8_t addr) {
+  _i2caddr = addr;
   Wire.begin();
+
 }
  
 /**************************************************************************/
@@ -62,7 +64,9 @@ void Adafruit_MCP4725::begin() {
 /**************************************************************************/
 void Adafruit_MCP4725::setVoltage( uint16_t output, bool writeEEPROM )
 {
-  Wire.beginTransmission(MCP4725_ADDRESS);
+  uint8_t twbrback = TWBR;
+  TWBR = 12; // 400 khz
+  Wire.beginTransmission(_i2caddr);
   if (writeEEPROM)
   {
     Wire.write(MCP4726_CMD_WRITEDACEEPROM);
@@ -74,4 +78,5 @@ void Adafruit_MCP4725::setVoltage( uint16_t output, bool writeEEPROM )
   Wire.write(output / 16);                   // Upper data bits          (D11.D10.D9.D8.D7.D6.D5.D4)
   Wire.write(output % 16) << 4;              // Lower data bits          (D3.D2.D1.D0.x.x.x.x)
   Wire.endTransmission();
+  TWBR = twbrback;
 }
