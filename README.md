@@ -19,4 +19,4 @@ All text above must be included in any redistribution
 
 To download. click the DOWNLOADS button in the top right corner, rename the uncompressed folder Adafruit_MCP4725. Check that the Adafruit_MCP4725 folder contains Adafruit_MCP4725.cpp and Adafruit_MCP4725.h
 
-Place the Adafruit_MCP4725 library folder your <arduinosketchfolder>/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.
+Place the Adafruit_MCP4725 library folder your arduinosketchfolder/libraries/ folder. You may need to create the libraries subfolder if its your first library. Restart the IDE.
