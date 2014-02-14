@@ -65,7 +65,7 @@ void Adafruit_MCP4725::begin(uint8_t addr) {
 void Adafruit_MCP4725::setVoltage( uint16_t output, bool writeEEPROM )
 {
   uint8_t twbrback = TWBR;
-  TWBR = 12; // 400 khz
+  TWBR = ((F_CPU / 400000L) - 16) / 2; // Set I2C frequency to 400kHz
   Wire.beginTransmission(_i2caddr);
   if (writeEEPROM)
   {
