@@ -5,7 +5,7 @@
 	@license  BSD (see license.txt)
 	
 	This is a library for the Adafruit MCP4725 breakout board
-	----> https://www.adafruit.com/products/???
+	----> http://www.adafruit.com/products/935
 	
 	Adafruit invests time and resources providing this open source code, 
 	please support Adafruit and open-source hardware by purchasing 

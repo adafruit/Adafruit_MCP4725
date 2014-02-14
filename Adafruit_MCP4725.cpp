@@ -7,7 +7,7 @@
 	I2C Driver for Microchip's MCP4725 I2C DAC
 
 	This is a library for the Adafruit MCP4725 breakout
-	----> https://www.adafruit.com/products/???
+	----> http://www.adafruit.com/products/935
 		
 	Adafruit invests time and resources providing this open source code, 
 	please support Adafruit and open-source hardware by purchasing 
