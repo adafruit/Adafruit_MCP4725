@@ -23,7 +23,12 @@
  #include "WProgram.h"
 #endif
 
-#include <Wire.h>
+#ifdef __AVR_ATtiny85__
+ #include "TinyWireM.h"
+ #define Wire TinyWireM
+#else
+ #include <Wire.h>
+#endif
 
 #define MCP4726_CMD_WRITEDAC            (0x40)  // Writes data to the DAC
 #define MCP4726_CMD_WRITEDACEEPROM      (0x60)  // Writes data to the DAC and the EEPROM (persisting the assigned value after reset)
