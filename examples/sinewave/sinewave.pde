@@ -27,7 +27,7 @@ Adafruit_MCP4725 dac;
    calculation will be required at each step after the first
    quarter wave.                                              */
 
-PROGMEM uint16_t DACLookup_FullSine_9Bit[512] =
+const PROGMEM uint16_t DACLookup_FullSine_9Bit[512] =
 {
   2048, 2073, 2098, 2123, 2148, 2174, 2199, 2224,
   2249, 2274, 2299, 2324, 2349, 2373, 2398, 2423,
@@ -95,7 +95,7 @@ PROGMEM uint16_t DACLookup_FullSine_9Bit[512] =
   1847, 1872, 1897, 1922, 1948, 1973, 1998, 2023
 };
 
-PROGMEM uint16_t DACLookup_FullSine_8Bit[256] =
+const PROGMEM uint16_t DACLookup_FullSine_8Bit[256] =
 {
   2048, 2098, 2148, 2198, 2248, 2298, 2348, 2398,
   2447, 2496, 2545, 2594, 2642, 2690, 2737, 2784,
@@ -131,7 +131,7 @@ PROGMEM uint16_t DACLookup_FullSine_8Bit[256] =
   1648, 1697, 1747, 1797, 1847, 1897, 1947, 1997
 };
 
-PROGMEM uint16_t DACLookup_FullSine_7Bit[128] =
+const PROGMEM uint16_t DACLookup_FullSine_7Bit[128] =
 {
   2048, 2148, 2248, 2348, 2447, 2545, 2642, 2737,
   2831, 2923, 3013, 3100, 3185, 3267, 3346, 3423,
@@ -151,7 +151,7 @@ PROGMEM uint16_t DACLookup_FullSine_7Bit[128] =
   1264, 1358, 1453, 1550, 1648, 1747, 1847, 1947
 };
 
-PROGMEM uint16_t DACLookup_FullSine_6Bit[64] =
+const PROGMEM uint16_t DACLookup_FullSine_6Bit[64] =
 {
   2048, 2248, 2447, 2642, 2831, 3013, 3185, 3346,
   3495, 3630, 3750, 3853, 3939, 4007, 4056, 4085,
@@ -163,7 +163,7 @@ PROGMEM uint16_t DACLookup_FullSine_6Bit[64] =
    600,  749,  910, 1082, 1264, 1453, 1648, 1847
 };
 
-PROGMEM uint16_t DACLookup_FullSine_5Bit[32] =
+const PROGMEM uint16_t DACLookup_FullSine_5Bit[32] =
 {
   2048, 2447, 2831, 3185, 3495, 3750, 3939, 4056,
   4095, 4056, 3939, 3750, 3495, 3185, 2831, 2447,
