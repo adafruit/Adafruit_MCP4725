@@ -39,6 +39,7 @@ class Adafruit_MCP4725{
   Adafruit_MCP4725();
   void begin(uint8_t a);  
   void setVoltage(uint16_t output, bool writeEEPROM);
+  float setNearestActualVoltage(uint16_t desiredOutputMilliVolts, uint16_t vrefMilliVolts, bool writeEEPROM);
   void powerDown(uint8_t loadResistance, bool writeEEPROM);
 
  private:

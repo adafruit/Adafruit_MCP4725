@@ -81,6 +81,16 @@ void Adafruit_MCP4725::writeI2cPacket(uint8_t controlBits, uint16_t dataBits) {
 #endif
 }
 
+float Adafruit_MCP4725::setNearestActualVoltage(uint16_t desiredOutputMilliVolts, uint16_t vrefMilliVolts, bool writeEEPROM) {
+  float dacStepsPerMillivolt = 4095.0 / vrefMilliVolts;
+  uint16_t nearestDacInputCodeForVoltage = round(dacStepsPerMillivolt * desiredOutputMilliVolts);
+
+  float nearestVoltage = (vrefMilliVolts / 4095.0) * nearestDacInputCodeForVoltage;
+
+  setVoltage(nearestDacInputCodeForVoltage, writeEEPROM);
+  return nearestVoltage;
+}
+
 void Adafruit_MCP4725::powerDown(uint8_t loadResistance, bool writeEEPROM) {
   uint8_t controlBits = writeEEPROM ? MCP4726_CMD_WRITEDACEEPROM : MCP4726_CMD_WRITEDAC;
 
