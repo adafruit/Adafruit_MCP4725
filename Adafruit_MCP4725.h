@@ -33,10 +33,11 @@
 #define MCP4725_OUTPUT_LOAD_RESISTANCE_1K   0
 #define MCP4725_OUTPUT_LOAD_RESISTANCE_100K 1
 #define MCP4725_OUTPUT_LOAD_RESISTANCE_500K 2
+#define MCP4725_ADDRESS_PIN_DISABLED        255
 
 class Adafruit_MCP4725{
  public:
-  Adafruit_MCP4725();
+  Adafruit_MCP4725(uint8_t addressPin = MCP4725_ADDRESS_PIN_DISABLED);
   void begin(uint8_t a);  
   void setVoltage(uint16_t output, bool writeEEPROM);
   float setNearestActualVoltage(uint16_t desiredOutputMilliVolts, uint16_t vrefMilliVolts, bool writeEEPROM);
@@ -44,7 +45,10 @@ class Adafruit_MCP4725{
 
  private:
   uint8_t _i2caddr;
+  uint8_t _addressPin;
+
   void writeI2cPacket(uint8_t controlBits, uint16_t data);
+  void setAddressPin(bool enable);
 };
 
 #endif

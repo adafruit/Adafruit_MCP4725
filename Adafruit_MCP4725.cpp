@@ -33,7 +33,12 @@
     @brief  Instantiates a new MCP4725 class
 */
 /**************************************************************************/
-Adafruit_MCP4725::Adafruit_MCP4725() {
+Adafruit_MCP4725::Adafruit_MCP4725(uint8_t addressPin) {
+  _addressPin = addressPin;
+
+  if(_addressPin != MCP4725_ADDRESS_PIN_DISABLED) {
+    pinMode(_addressPin, OUTPUT);
+  }
 }
 
 /**************************************************************************/
@@ -66,7 +71,15 @@ void Adafruit_MCP4725::setVoltage(uint16_t output, bool writeEEPROM) {
   writeI2cPacket(controlBits, output);
 }
 
+void Adafruit_MCP4725::setAddressPin(bool enable) {
+  if(_addressPin != MCP4725_ADDRESS_PIN_DISABLED) {
+    digitalWrite(_addressPin, enable);
+  }
+}
+
 void Adafruit_MCP4725::writeI2cPacket(uint8_t controlBits, uint16_t dataBits) {
+setAddressPin(true);
+
 #ifdef TWBR
   uint8_t twbrback = TWBR;
   TWBR = ((F_CPU / 400000L) - 16) / 2; // Set I2C frequency to 400kHz
@@ -79,6 +92,8 @@ void Adafruit_MCP4725::writeI2cPacket(uint8_t controlBits, uint16_t dataBits) {
 #ifdef TWBR
   TWBR = twbrback;
 #endif
+
+  setAddressPin(false);
 }
 
 float Adafruit_MCP4725::setNearestActualVoltage(uint16_t desiredOutputMilliVolts, uint16_t vrefMilliVolts, bool writeEEPROM) {
