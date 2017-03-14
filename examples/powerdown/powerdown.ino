@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     powerdown.pde
+    @file     powerdown.ino
     @author   Alex Mitchell (MitchellSoft Technology Ltd.)
     @license  BSD (see license.txt)
 

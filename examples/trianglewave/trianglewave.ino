@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*! 
-    @file     trianglewave.pde
+    @file     trianglewave.ino
     @author   Adafruit Industries
     @license  BSD (see license.txt)
 
