@@ -31,9 +31,11 @@
 class Adafruit_MCP4725{
  public:
   Adafruit_MCP4725();
-  void begin(uint8_t a);  
+  void begin(uint8_t addr);
+  void begin(TwoWire *theWire, uint8_t addr);    
   void setVoltage( uint16_t output, bool writeEEPROM );
 
  private:
+  TwoWire *_i2c;
   uint8_t _i2caddr;
 };

@@ -42,9 +42,17 @@ Adafruit_MCP4725::Adafruit_MCP4725() {
 */
 /**************************************************************************/
 void Adafruit_MCP4725::begin(uint8_t addr) {
+  _i2c = &Wire;
   _i2caddr = addr;
-  Wire.begin();
 
+  _i2c->begin();
+}
+ 
+void Adafruit_MCP4725::begin(TwoWire *theWire, uint8_t addr) {
+  _i2c = theWire;
+  _i2caddr = addr;
+
+  _i2c->begin();
 }
  
 /**************************************************************************/
@@ -68,18 +76,18 @@ void Adafruit_MCP4725::setVoltage( uint16_t output, bool writeEEPROM )
   uint8_t twbrback = TWBR;
   TWBR = ((F_CPU / 400000L) - 16) / 2; // Set I2C frequency to 400kHz
 #endif
-  Wire.beginTransmission(_i2caddr);
+  _i2c->beginTransmission(_i2caddr);
   if (writeEEPROM)
   {
-    Wire.write(MCP4726_CMD_WRITEDACEEPROM);
+    _i2c->write(MCP4726_CMD_WRITEDACEEPROM);
   }
   else
   {
-    Wire.write(MCP4726_CMD_WRITEDAC);
+    _i2c->write(MCP4726_CMD_WRITEDAC);
   }
-  Wire.write(output / 16);                   // Upper data bits          (D11.D10.D9.D8.D7.D6.D5.D4)
-  Wire.write((output % 16) << 4);            // Lower data bits          (D3.D2.D1.D0.x.x.x.x)
-  Wire.endTransmission();
+  _i2c->write(output / 16);                   // Upper data bits          (D11.D10.D9.D8.D7.D6.D5.D4)
+  _i2c->write((output % 16) << 4);            // Lower data bits          (D3.D2.D1.D0.x.x.x.x)
+  _i2c->endTransmission();
 #ifdef TWBR
   TWBR = twbrback;
 #endif
