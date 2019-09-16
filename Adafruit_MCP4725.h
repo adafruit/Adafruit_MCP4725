@@ -17,6 +17,9 @@
 */
 /**************************************************************************/
 
+#ifndef _ADAFRUIT_MCP4725_H_
+#define _ADAFRUIT_MCP4725_H_
+
 #if ARDUINO >= 100
  #include "Arduino.h"
 #else
@@ -37,3 +40,5 @@ class Adafruit_MCP4725{
  private:
   uint8_t _i2caddr;
 };
+
+#endif
