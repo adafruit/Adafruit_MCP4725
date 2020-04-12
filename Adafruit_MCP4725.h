@@ -33,7 +33,7 @@ class Adafruit_MCP4725{
   Adafruit_MCP4725();
   void begin(uint8_t a);  
   void setVoltage( uint16_t output, bool writeEEPROM );
-
+  uint8_t _lastResult;
  private:
   uint8_t _i2caddr;
 };
