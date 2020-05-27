@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     sinewave.pde
+    @file     sinewave.ino
     @author   Adafruit Industries
     @license  BSD (see license.txt)
 
