@@ -1,4 +1,4 @@
-Adafruit_MCP4725
+Adafruit_MCP4725 [![Build Status](https://github.com/adafruit/Adafruit_MCP4725/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_MCP4725/actions)
 ================
 
 This is the Adafruit MCP4725 12-bit I2C DAC Driver library
