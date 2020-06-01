@@ -2,7 +2,6 @@
 /*!
     @file     Adafruit_MCP4725.cpp
     @author   K.Townsend (Adafruit Industries)
-        @license  BSD (see license.txt)
 
         I2C Driver for Microchip's MCP4725 I2C DAC
 
@@ -15,7 +14,6 @@
 
         @section  HISTORY
 
-    v1.0 - First release
 */
 /**************************************************************************/
 
